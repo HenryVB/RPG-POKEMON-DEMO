@@ -2,109 +2,84 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private LayerMask solidObjectsLayer;
-    [SerializeField]
-    private LayerMask grassLayer;
-    [SerializeField]
-    private LayerMask interactuableLayer;
+    [SerializeField] private string name;
+    [SerializeField] private Sprite sprite;
 
     public event Action onEncountered;
 
-    private bool isMoving;
     private Vector2 input;
 
-    private Animator animator;
-
+    private Character character;
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        character = GetComponent<Character>();
     }
-    // Update is called once per frame
+
     public void HandleUpdate()
     {
-        if (!isMoving) {
+        if (!character.IsMoving)
+        {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            //No diagonal movement
-            if(input.x != 0) input.y = 0;
+            // remove diagonal movement
+            if (input.x != 0) input.y = 0;
 
-            if(input != Vector2.zero)
+            if (input != Vector2.zero)
             {
-                animator.SetFloat("moveXAnim", input.x);
-                animator.SetFloat("moveYAnim", input.y);
-
-                var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
-
-                if(IsWalkable(targetPos))
-                StartCoroutine(Movement(targetPos));
+                StartCoroutine(character.Move(input, OnMoveOver));
             }
         }
-        animator.SetBool("isMoving", isMoving);
 
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            Debug.Log("Presionado Z");
+        character.HandleUpdate();
+
+        if (Input.GetKeyDown(KeyCode.Z))
             Interact();
-        }
-            
     }
 
-    private void Interact()
+    void Interact()
     {
-        var facingDir = new Vector3(animator.GetFloat("moveXAnim"),animator.GetFloat("moveYAnim"));
+        var facingDir = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPos = transform.position + facingDir;
 
-        Debug.DrawLine(transform.position,interactPos,Color.red,0.5f);
+        // Debug.DrawLine(transform.position, interactPos, Color.green, 0.5f);
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactuableLayer);
-
-        Debug.Log("rESPUESTA: "+collider);
-
-        if(collider != null)
-            collider.GetComponent<Interactuable>()?.Interact();
-    }
-
-    IEnumerator Movement(Vector3 targetPos) {
-        
-        isMoving = true;
-
-        while((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractableLayer);
+        if (collider != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            yield return null;
+            collider.GetComponent<Interactuable>()?.Interact(transform);
         }
-
-        transform.position = targetPos;
-        isMoving = false;
-        CheckForEncounters();
     }
 
-    private bool IsWalkable(Vector3 targetPos) { 
-        if(Physics2D.OverlapCircle(targetPos,0.2f,solidObjectsLayer | interactuableLayer) != null)
-            return false;
-
-        return true;
-    }
-    
-    private void CheckForEncounters()
+    private void OnMoveOver()
     {
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+        var colliders = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, character.OffsetY), 0.2f, GameLayers.i.TriggerableLayers);
+
+        foreach (var collider in colliders)
         {
-            if(UnityEngine.Random.Range(1,101) <=10)
+            var triggerable = collider.GetComponent<IPlayerTriggerable>();
+            if (triggerable != null)
             {
-                Debug.Log("Encountered Wild Pokemon");
-                animator.SetBool("isMoving", false);
-                onEncountered();
+                character.Animator.IsMoving = false;
+                triggerable.OnPlayerTriggered(this);
+                break;
             }
         }
-            
     }
+
+    public string Name
+    {
+        get => name;
+    }
+
+    public Sprite Sprite
+    {
+        get => sprite;
+    }
+
+    public Character Character => character;
 }

@@ -13,7 +13,7 @@ public class SpriteAnimator
 
     public List<Sprite> Frames { get => frames; set => frames = value; }
 
-    public SpriteAnimator(SpriteRenderer sr, List<Sprite> frames, float frameRate=0.16f)
+    public SpriteAnimator(List<Sprite> frames, SpriteRenderer sr, float frameRate=0.16f)
     {
         this.sr = sr;
         this.Frames = frames;

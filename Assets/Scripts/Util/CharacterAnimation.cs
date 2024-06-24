@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
 {
-    [SerializeField] List<Sprite> walkDownSprites;
-    [SerializeField] List <Sprite> walkUpSprites;
-    [SerializeField] List<Sprite> walkRightSprites;
-    [SerializeField] List<Sprite> walkLeftSprites;
+    [SerializeField] private List<Sprite> walkDownSprites;
+    [SerializeField] private List<Sprite> walkUpSprites;
+    [SerializeField] private List<Sprite> walkRightSprites;
+    [SerializeField] private List<Sprite> walkLeftSprites;
 
     public float MoveX {  get; private set; }
     public float MoveY { get; private set;}
@@ -25,10 +25,10 @@ public class CharacterAnimation : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        walkDownAnim = new SpriteAnimator(spriteRenderer, walkDownSprites);
-        walkUpAnim = new SpriteAnimator(spriteRenderer, walkUpSprites);
-        walkRightAnim = new SpriteAnimator(spriteRenderer, walkRightSprites);
-        walkLeftAnim = new SpriteAnimator(spriteRenderer, walkLeftSprites);
+        walkDownAnim = new SpriteAnimator(walkDownSprites, spriteRenderer);
+        walkUpAnim = new SpriteAnimator(walkUpSprites,spriteRenderer);
+        walkRightAnim = new SpriteAnimator(walkRightSprites, spriteRenderer);
+        walkLeftAnim = new SpriteAnimator(walkLeftSprites, spriteRenderer);
 
         currentAnim = walkDownAnim;
     }
