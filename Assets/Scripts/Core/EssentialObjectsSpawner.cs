@@ -10,6 +10,16 @@ public class EssentialObjectsSpawner : MonoBehaviour
     {
         var existingObjects = FindObjectsOfType<EssentialObjects>();
         if (existingObjects.Length == 0)
-            Instantiate(essentialObjectsPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        {
+            //CAMBIO POR ADDITIVE SCENE
+            // spawnmear en origen
+            var spawnPos = new Vector3(0, 0, 0);
+
+            var grid = FindObjectOfType<Grid>();
+            if (grid != null)
+                spawnPos = grid.transform.position; // en la posicion de la grilla
+
+            Instantiate(essentialObjectsPrefab, spawnPos, Quaternion.identity);
+        }
     }
 }

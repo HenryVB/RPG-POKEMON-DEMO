@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,16 @@ public class GameManager : MonoBehaviour
     private GameState state;
     private GameState stateBeforePause;
 
+    //CAMBIO POR ADDITIVE SCENE
+    private SceneDetails currentScene;
+    private SceneDetails prevScene;
+
     public static GameManager Instance { get; private set; }
+    
+    //CAMBIO POR ADDITIVE SCENE
+    public SceneDetails CurrentScene { get => currentScene; set => currentScene = value; }
+    public SceneDetails PrevScene { get => prevScene; set => prevScene = value; }
+
     private void Awake()
     {
         Instance = this;
@@ -57,7 +67,10 @@ public class GameManager : MonoBehaviour
         worldCamera.gameObject.SetActive(false);
 
         var playerParty = playerController.GetComponent<PokemonParty>();
-        var wildPokemon = FindObjectOfType<MapArea>().GetComponent<MapArea>().getRandomWildPokemon();
+        
+        //Se cambia para que tome el componente actual en escena en lugar que busque y obtenga aleatoriamente
+        var wildPokemon = CurrentScene.GetComponent<MapArea>().getRandomWildPokemon();
+        //var wildPokemon = FindObjectOfType<MapArea>().GetComponent<MapArea>().getRandomWildPokemon();
 
         //var wildPokemonCopy = new Pokemon(wildPokemon.Base, wildPokemon.Level);
 
@@ -114,5 +127,11 @@ public class GameManager : MonoBehaviour
         {
             DialogManager.Instance.HandleUpdate();
         }
+    }
+
+    internal void SetCurrentScene(SceneDetails currentScene)
+    {
+        PrevScene = CurrentScene;
+        CurrentScene = currentScene;
     }
 }
