@@ -30,6 +30,7 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         UpdateItemList();
+        inventory.OnUpdated += UpdateItemList; //Susbcripcion para el update cuando se agreguen quiten items
     }
 
     void UpdateItemList()
@@ -89,7 +90,7 @@ public class InventoryUI : MonoBehaviour
     //Para scrollear dinamico con flechas en vez del scroll normal vertical
     void HandleScrolling()
     {
-        if (slotUIList.Count <= itemsInViewport) return; // en caso # items sea menor a la cantidad x pantalla no hace scroll
+        if (slotUIList.Count <= itemsInViewport) return; // En caso # de items sea menor al max por la UI
 
         float scrollPos = Mathf.Clamp(selectedItem - itemsInViewport / 2, 0, selectedItem) * slotUIList[0].Height;
         itemListRect.localPosition = new Vector2(itemListRect.localPosition.x, scrollPos);

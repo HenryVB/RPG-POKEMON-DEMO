@@ -12,7 +12,7 @@ public class ItemSlotUI : MonoBehaviour
     private void Awake()
     {
         //para scrollear dinamico con los valores del rectransform del scroll
-        rectTransform = GetComponent<RectTransform>();
+        //rectTransform = GetComponent<RectTransform>();
     }
 
     //Altura del RectTransform
@@ -23,6 +23,8 @@ public class ItemSlotUI : MonoBehaviour
 
     public void SetData(ItemSlot itemSlot)
     {
+        //para scrollear dinamico con los valores del rectransform del scroll
+        rectTransform = GetComponent<RectTransform>();
         NameText.text = itemSlot.Item.Name;
         CountText.text = $"X {itemSlot.Count}";
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum GameState { FreeRoam, Battle, Dialog, Menu, Cutscene, Paused,Bag }
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
 
 
     private GameState state;
-    private GameState stateBeforePause;
+    private GameState prevState;
 
     //CAMBIO POR ADDITIVE SCENE
     private SceneDetails currentScene;
@@ -31,29 +32,24 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         menuController = GetComponent<Menu>();
-
-        //Para bloquear y ocultar el puntero del mouse del juego
-        //CURSOR.lockstable = CursorLockMode.Locked
-        //CURSOR.VISIBLE = FALSE
-
-        //PokemonDB.Init();
-        //MoveDB.Init();
-        //ConditionsDB.Init();
     }
 
     private void Start()
     {
         battleSystem.onBattleOver += EndBattle;
 
+        //partyScreen.Init();
+
         DialogManager.Instance.OnShowDialog += () =>
         {
+            prevState = state;
             state = GameState.Dialog;
         };
 
-        DialogManager.Instance.OnCloseDialog += () =>
+        DialogManager.Instance.OnDialogFinished += () =>
         {
             if (state == GameState.Dialog)
-                state = GameState.FreeRoam;
+                state = prevState;
         };
 
         menuController.onBack += () =>
@@ -68,12 +64,12 @@ public class GameManager : MonoBehaviour
     {
         if (pause)
         {
-            stateBeforePause = state;
+            prevState = state;
             state = GameState.Paused;
         }
         else
         {
-            state = stateBeforePause;
+            state = prevState;
         }
     }
 
@@ -85,6 +81,8 @@ public class GameManager : MonoBehaviour
 
         var playerParty = playerController.GetComponent<PokemonParty>();
         var wildPokemon = CurrentScene.GetComponent<MapArea>().GetRandomWildPokemon();
+
+        //var wildPokemonCopy = new Pokemon(wildPokemon.Base, wildPokemon.Level);
 
         battleSystem.StartBattle(playerParty, wildPokemon);
     }
@@ -119,7 +117,6 @@ public class GameManager : MonoBehaviour
             trainer = null;
         }
         */
-
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
@@ -188,7 +185,8 @@ public class GameManager : MonoBehaviour
         if (selectedItem == 0)
         {
             // Pokemon
-            state = GameState.FreeRoam;
+            //partyScreen.gameObject.SetActive(true);
+            //state = GameState.PartyScreen;
         }
         else if (selectedItem == 1)
         {
@@ -199,12 +197,16 @@ public class GameManager : MonoBehaviour
         else if (selectedItem == 2)
         {
             // Save
+            //SavingSystem.i.Save("saveSlot1");
             state = GameState.FreeRoam;
         }
         else if (selectedItem == 3)
         {
             // Load
+            //SavingSystem.i.Load("saveSlot1");
             state = GameState.FreeRoam;
         }
     }
+
+    public GameState State => state;
 }
