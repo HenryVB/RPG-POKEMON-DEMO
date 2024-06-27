@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
             var triggerable = collider.GetComponent<IPlayerTriggerable>();
             if (triggerable != null)
             {
+                //Cambio por ADDITIVE SCENE
                 //character.Animator.IsMoving = false;
                 triggerable.OnPlayerTriggered(this);
                 break;

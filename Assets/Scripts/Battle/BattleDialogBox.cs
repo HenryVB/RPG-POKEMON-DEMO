@@ -20,6 +20,11 @@ public class BattleDialogBox : MonoBehaviour
     [SerializeField] private Text ppText;
     [SerializeField] private Text typeText;
 
+    private void Start()
+    {
+        highlightedColor = GlobalSettings.instance.HighlightedColor;
+    }
+
     public void SetDialog(string dialog)
     {
         dialogText.text = dialog;
@@ -53,22 +58,27 @@ public class BattleDialogBox : MonoBehaviour
         moveDetails.SetActive(enabled);
     }
 
+    /*
+    public void EnableChoiceBox(bool enabled)
+    {
+        choiceBox.SetActive(enabled);
+    }
+    */
+
     public void UpdateActionSelection(int selectedAction)
     {
-        int i;
-        for (i = 0; i < actionTexts.Count; i++)
+        for (int i = 0; i < actionTexts.Count; ++i)
         {
-            if(i == selectedAction)
+            if (i == selectedAction)
                 actionTexts[i].color = highlightedColor;
             else
                 actionTexts[i].color = Color.black;
-        } 
+        }
     }
 
-    public void UpdateMoveSelection(int selectedMove,Move move)
+    public void UpdateMoveSelection(int selectedMove, Move move)
     {
-        int i;
-        for (i = 0; i < moveTexts.Count; i++)
+        for (int i = 0; i < moveTexts.Count; ++i)
         {
             if (i == selectedMove)
                 moveTexts[i].color = highlightedColor;
@@ -77,16 +87,37 @@ public class BattleDialogBox : MonoBehaviour
         }
 
         ppText.text = $"PP {move.PP}/{move.Base.Pp}";
-        typeText.text = move.Base.Type.ToString();    
+        typeText.text = move.Base.Type.ToString();
+
+        if (move.PP == 0)
+            ppText.color = Color.red;
+        else
+            ppText.color = Color.black;
     }
+
     public void SetMoveNames(List<Move> moves)
     {
-        for (int i = 0;i < moveTexts.Count; i++)
+        for (int i = 0; i < moveTexts.Count; ++i)
         {
             if (i < moves.Count)
-                moveTexts[i].text = moves[i].Base.name;
+                moveTexts[i].text = moves[i].Base.Name;
             else
                 moveTexts[i].text = "-";
         }
     }
+    /*
+    public void UpdateChoiceBox(bool yesSelected)
+    {
+        if (yesSelected)
+        {
+            yesText.color = highlightedColor;
+            noText.color = Color.black;
+        }
+        else
+        {
+            yesText.color = Color.black;
+            noText.color = highlightedColor;
+        }
+    }
+    */
 }
