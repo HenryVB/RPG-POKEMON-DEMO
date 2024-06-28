@@ -10,38 +10,49 @@ public class GameLayers : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private LayerMask fovLayer;
     [SerializeField] private LayerMask portalLayer;
+    [SerializeField] private LayerMask triggersLayer;
 
     public static GameLayers i { get; set; }
     private void Awake()
     {
-        i = this;
+        if (i == null)
+        {
+            i = this;
+        }
     }
 
-    public LayerMask SolidLayer {
+    public LayerMask SolidLayer
+    {
         get => solidObjectsLayer;
     }
 
-    public LayerMask InteractableLayer {
+    public LayerMask InteractableLayer
+    {
         get => interactableLayer;
     }
 
-    public LayerMask GrassLayer {
+    public LayerMask GrassLayer
+    {
         get => grassLayer;
     }
 
-    public LayerMask PlayerLayer {
+    public LayerMask PlayerLayer
+    {
         get => playerLayer;
     }
 
-    public LayerMask FovLayer {
+    public LayerMask FovLayer
+    {
         get => fovLayer;
     }
 
-    public LayerMask PortalLayer {
+    public LayerMask PortalLayer
+    {
         get => portalLayer;
     }
 
-    public LayerMask TriggerableLayers {
-        get => grassLayer | fovLayer | portalLayer;
+    public LayerMask TriggerableLayers
+    {
+        get => grassLayer | fovLayer | portalLayer | triggersLayer;
     }
 }

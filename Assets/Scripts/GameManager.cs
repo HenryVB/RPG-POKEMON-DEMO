@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+        AudioManager.instance.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
 
     private void Update()

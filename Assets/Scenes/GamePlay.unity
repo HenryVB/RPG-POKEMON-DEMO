@@ -155,6 +155,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 103721936192186955, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
+      propertyPath: m_Size.y
+      value: 1.402598
+      objectReference: {fileID: 0}
+    - target: {fileID: 103721936192186955, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.02051544
+      objectReference: {fileID: 0}
+    - target: {fileID: 103721936192186955, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0458096
+      objectReference: {fileID: 0}
     - target: {fileID: 182054136580156291, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1315,6 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 8292466707949363526}
+  sceneMusic: {fileID: 0}
 --- !u!224 &1334676083 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5738858645277596, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
@@ -1416,7 +1429,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1593157629404755582, guid: cd764e7f8031bb3449ac53ca005dbe8d, type: 3}
       propertyPath: m_Size.y
-      value: 18.9
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4979911336408064543, guid: cd764e7f8031bb3449ac53ca005dbe8d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1492,6 +1505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 8292466707949363526}
+  sceneMusic: {fileID: 8300000, guid: 1e3a16917d4376847b481443af888f5a, type: 3}
 --- !u!114 &1705623634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,6 +1698,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1705623633}
   - {fileID: 1289070176}
+  sceneMusic: {fileID: 8300000, guid: 4ff276b5293e35240933cc42e33fadf9, type: 3}
 --- !u!114 &8292466707949363527
 MonoBehaviour:
   m_ObjectHideFlags: 0

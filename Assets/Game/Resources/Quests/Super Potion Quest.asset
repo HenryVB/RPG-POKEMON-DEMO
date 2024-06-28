@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1662f62dfc7204296dba82f766ab91, type: 3}
+  m_Name: Super Potion Quest
+  m_EditorClassIdentifier: 
+  name: Super Potion Quest
+  description: Bring a super potion
+  startDialogue:
+    lines:
+    - Hola tengo una mision
+    - Puedes traerme una super potion? Buscala por aqui en un icono de pokebola
+  inProgressDialogue:
+    lines:
+    - Hola consigueme la super potion
+  completedDialogue:
+    lines:
+    - Muchas gracias
+    - Aqui te doy un premio
+  requiredItem: {fileID: 11400000, guid: fdba64884a60a3c4e9f82ece78484def, type: 2}
+  rewardItem: {fileID: 11400000, guid: 3883e71630d511f41a73549bab9af623, type: 2}

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4695197594061664716}
   - component: {fileID: 4696624529817758795}
   - component: {fileID: 2079318634343443202}
+  - component: {fileID: 3913161835916011860}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -118,9 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7f7dc41058e8f48af793a79e031e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokemonList:
-  - _base: {fileID: 11400000, guid: 608d1802c7e1bf949a66144b7d536fcb, type: 2}
-    level: 7
+  pokemonList: []
 --- !u!114 &2023844198058863860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,8 +180,6 @@ MonoBehaviour:
   slots:
   - item: {fileID: 11400000, guid: 866bcdee46d79cb4f923c1af327ad42e, type: 2}
     count: 3
-  - item: {fileID: 11400000, guid: 3883e71630d511f41a73549bab9af623, type: 2}
-    count: 2
   - item: {fileID: 11400000, guid: b1cdd051bf0123541b5fd9c4c08067df, type: 2}
     count: 4
 --- !u!50 &4696624529817758795
@@ -257,6 +254,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9945631, y: 1.4025984}
   m_EdgeRadius: 0
+--- !u!114 &3913161835916011860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363939639119672539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa63907cbb055b42838c49508e470a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6864785435299621082
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +309,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

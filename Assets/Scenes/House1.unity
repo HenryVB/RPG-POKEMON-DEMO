@@ -123,6 +123,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &276593534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5870468662758795998, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+  m_PrefabInstance: {fileID: 6308118136714399549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &276593544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276593534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637fc16a4772e9446b1bc7d95d58e493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pokemonsToGive:
+  - _base: {fileID: 11400000, guid: b87ca861ac2d4574e934d10193c0b60c, type: 2}
+    level: 6
+  - _base: {fileID: 11400000, guid: 608d1802c7e1bf949a66144b7d536fcb, type: 2}
+    level: 6
+  - _base: {fileID: 11400000, guid: b70b10138b019bd408668f8058407aac, type: 2}
+    level: 6
+  dialog:
+    lines:
+    - Salir fuera del publo sin pokemon es peligroso
+    - Venga te regalo 1 de los 3 que tengo
 --- !u!1 &458945072
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &458945073
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +223,101 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 458945076}
+    m_ColliderPaths:
+    - - X: 60000000
+        Y: 50000000
+      - X: 58125000
+        Y: 50000000
+      - X: 58125000
+        Y: 53750000
+      - X: 56250000
+        Y: 60000000
+      - X: 43750000
+        Y: 60000000
+      - X: 41875000
+        Y: 56250000
+      - X: 41875000
+        Y: 50000000
+      - X: 40000000
+        Y: 50000000
+      - X: 40000000
+        Y: 30000000
+      - X: 60000000
+        Y: 30000000
+    - - X: -40000000
+        Y: 33750000
+      - X: -40000000
+        Y: 40000000
+      - X: -40625000
+        Y: 40000000
+      - X: -40000000
+        Y: 45000000
+      - X: -40000000
+        Y: 49375000
+      - X: -48750000
+        Y: 49375000
+      - X: -50000000
+        Y: 48750000
+      - X: -50000000
+        Y: 60000000
+      - X: -80000000
+        Y: 60000000
+      - X: -80000000
+        Y: 33125000
+      - X: -79375000
+        Y: 31875000
+      - X: -74375000
+        Y: 31875000
+      - X: -70000000
+        Y: 32500000
+      - X: -70000000
+        Y: 33125000
+      - X: -60000000
+        Y: 33125000
+      - X: -53125000
+        Y: 31875000
+      - X: -51250000
+        Y: 31875000
+      - X: -50000000
+        Y: 33125000
+      - X: -50000000
+        Y: 30000000
+      - X: -41250000
+        Y: 30000000
+    - - X: 80000000
+        Y: 33750000
+      - X: 80000000
+        Y: 40000000
+      - X: 79375000
+        Y: 40000000
+      - X: 80000000
+        Y: 45000000
+      - X: 80000000
+        Y: 49375000
+      - X: 71250000
+        Y: 49375000
+      - X: 70000000
+        Y: 48750000
+      - X: 70000000
+        Y: 30000000
+      - X: 78750000
+        Y: 30000000
+    - - X: -70000000
+        Y: -16875000
+      - X: -62500000
+        Y: -19375000
+      - X: -60000000
+        Y: -19375000
+      - X: -60000000
+        Y: 10000000
+      - X: -80000000
+        Y: 10000000
+      - X: -80000000
+        Y: -19375000
+      - X: -75625000
+        Y: -19375000
   m_CompositePaths:
     m_Paths:
     - - {x: 5.999971, y: 3}
@@ -5062,9 +5184,122 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &6308118136714399549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: questToComplete
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c3394acd292b9d4c99668306a5c223c, type: 2}
+    - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: dialog.lines.Array.data[0]
+      value: Ahora puedes salir. Buena suerte
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870468662758795998, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: m_Name
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: dialog.lines.Array.data[0]
+      value: No es seguro salir del pueblo sin un pokemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: dialog.lines.Array.data[1]
+      value: Venga escogere 1 de los 3 que tengo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[0]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: b87ca861ac2d4574e934d10193c0b60c, type: 2}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[0].level
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[1]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: 608d1802c7e1bf949a66144b7d536fcb, type: 2}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[1].level
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[2]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: b70b10138b019bd408668f8058407aac, type: 2}
+    - target: {fileID: 4126732237513612277, guid: 4896b35706b9718448b24ac2247a72f3, type: 3}
+      propertyPath: pokemonsToGive.Array.data[2].level
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5870468662758795998, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 276593544}
+  m_SourcePrefab: {fileID: 100100000, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 761606966}
   - {fileID: 633359162}
+  - {fileID: 6308118136714399549}

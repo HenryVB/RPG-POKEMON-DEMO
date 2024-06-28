@@ -22,12 +22,19 @@ public class BattleSystem : MonoBehaviour
 
     private bool isTrainerBattle;
     private int escapeAttempts;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip wildBattleMusic;
+    //[SerializeField] private AudioClip battleVictoryMusic;
+
+
     public void StartBattle(PokemonParty playerParty, Pokemon wildPokemon)
     {
         isTrainerBattle = false; //MIENTRAS NO SE IMPLEMENTA ESTARÁ EN FALSO
         escapeAttempts = 0;
         this.playerParty = playerParty;
         this.wildPokemon = wildPokemon;
+        AudioManager.instance.PlayMusic(wildBattleMusic);
         StartCoroutine(SetupBattle());
     }
 
@@ -247,6 +254,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         targetUnit.PlayHitAnimation();
+        AudioManager.instance.PlaySfx(AudioId.Hit);
 
         var damageDetails = targetUnit.Pokemon.TakeDamage(move, sourceUnit.Pokemon);
         yield return targetUnit.Hud.UpdateHP(targetUnit.Pokemon);
@@ -278,6 +286,7 @@ public class BattleSystem : MonoBehaviour
 
         else
         {
+            //AudioManager.instance.PlayMusic(battleVictoryMusic); //Cancion de victoria
             BattleOver(false);//revisar si es true o false y viceversa
         }
     }

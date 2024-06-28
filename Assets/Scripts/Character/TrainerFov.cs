@@ -5,6 +5,8 @@ using UnityEngine.TextCore.Text;
 
 public class TrainerFov : MonoBehaviour, IPlayerTriggerable
 {
+    public bool IsTriggerRepeat => false;
+
     public void OnPlayerTriggered(PlayerController player)
     {
         //Cambio por ADDITIVE SCENE

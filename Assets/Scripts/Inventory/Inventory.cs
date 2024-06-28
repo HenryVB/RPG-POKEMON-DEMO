@@ -18,8 +18,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        //allSlots = new List<List<ItemSlot>>() { slots, pokeballSlots, tmSlots };
-        allSlots = new List<List<ItemSlot>>() { slots};
+        allSlots = new List<List<ItemSlot>>() { slots}; // solo items basicos
     }
 
     public static List<string> ItemCategories { get; set; } = new List<string>()
@@ -46,7 +45,7 @@ public class Inventory : MonoBehaviour
         if (itemUsed)
         {
             if (!item.IsReusable)
-                RemoveItem(item, selectedCategory);
+                RemoveItem(item);
 
             return item;
         }
@@ -73,11 +72,12 @@ public class Inventory : MonoBehaviour
             });
         }
 
-        OnUpdated?.Invoke();//Para actualizar el UI
+        OnUpdated?.Invoke();
     }
 
-    public void RemoveItem(ItemBase item, int category)
+    public void RemoveItem(ItemBase item)
     {
+        int category = (int)GetCategoryFromItem(item);
         var currentSlots = GetSlotsByCategory(category);
 
         var itemSlot = currentSlots.First(slot => slot.Item == item);
@@ -85,23 +85,27 @@ public class Inventory : MonoBehaviour
         if (itemSlot.Count == 0)
             currentSlots.Remove(itemSlot);
 
-        OnUpdated?.Invoke(); //Para actualizar el UI
+        OnUpdated?.Invoke();
+    }
+
+    public bool HasItem(ItemBase item)
+    {
+        int category = (int)GetCategoryFromItem(item);
+        var currentSlots = GetSlotsByCategory(category);
+
+        return currentSlots.Exists(slot => slot.Item == item);
     }
 
     ItemCategory GetCategoryFromItem(ItemBase item)
-    {
-        //Por ahora solo items normales
-            return ItemCategory.Items;
-        //else if (item is PokeballItem)
-        //    return ItemCategory.Pokeballs;
-        //else
-        //    return ItemCategory.Tms;
+    {       
+            return ItemCategory.Items; //solo items basicos
     }
 
     public static Inventory GetInventory()
     {
         return FindObjectOfType<PlayerController>().GetComponent<Inventory>();
     }
+
 }
 
 [Serializable]
@@ -109,6 +113,11 @@ public class ItemSlot
 {
     [SerializeField] ItemBase item;
     [SerializeField] int count;
+
+    public ItemSlot()
+    {
+
+    }
 
     public ItemBase Item
     {
