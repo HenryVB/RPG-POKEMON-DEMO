@@ -1184,57 +1184,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5738858645277596, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1787662009}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1776598476187760018, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 793010993}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
---- !u!1 &793010984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1776598476187760018, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
-  m_PrefabInstance: {fileID: 714560566}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &793010993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793010984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c780412ab0b5a4a9124791da8f30d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slots:
-  - item: {fileID: 11400000, guid: 866bcdee46d79cb4f923c1af327ad42e, type: 2}
-    count: 3
-  - item: {fileID: 11400000, guid: fdba64884a60a3c4e9f82ece78484def, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 3883e71630d511f41a73549bab9af623, type: 2}
-    count: 1
-  - item: {fileID: 11400000, guid: b1cdd051bf0123541b5fd9c4c08067df, type: 2}
-    count: 4
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 5
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 6
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 10
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 9
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 11
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 100
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 34
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: cf3eefaa3534a7f47a49d4e8d2a36334, type: 2}
-    count: 5
 --- !u!1 &1255946443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4943553349440534846, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}

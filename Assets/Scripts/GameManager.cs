@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { FreeRoam, Battle, Dialog, Menu, Cutscene, Paused,Bag }
 public class GameManager : MonoBehaviour
@@ -121,6 +122,20 @@ public class GameManager : MonoBehaviour
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
         AudioManager.instance.PlayMusic(CurrentScene.SceneMusic, fade: true);
+
+
+        if (won)
+        {
+            AudioManager.instance.StopMusic();
+            SceneManager.LoadScene("Victory");
+        }
+
+        else
+        {
+            AudioManager.instance.StopMusic();
+            SceneManager.LoadScene("GameOver");
+        }
+            
     }
 
     private void Update()

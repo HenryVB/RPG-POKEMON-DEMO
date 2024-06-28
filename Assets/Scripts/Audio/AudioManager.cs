@@ -60,6 +60,11 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(PlayMusicAsync(clip, loop, fade));
     }
 
+    public void StopMusic()
+    {
+        musicPlayer.Stop();
+    }
+
     IEnumerator PlayMusicAsync(AudioClip clip, bool loop, bool fade)
     {
         if (fade)

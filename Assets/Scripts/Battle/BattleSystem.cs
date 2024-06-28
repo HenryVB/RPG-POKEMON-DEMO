@@ -281,13 +281,13 @@ public class BattleSystem : MonoBehaviour
         if (faintedUnit.IsPLayerUnit)
         {
             //LOGICA PARA SACAR OTRO POKE PERO AHORA NO VA
-            BattleOver(true);//revisar si es true o false y viceversa
+            BattleOver(false);//revisar si es true o false y viceversa
         }
 
         else
         {
             //AudioManager.instance.PlayMusic(battleVictoryMusic); //Cancion de victoria
-            BattleOver(false);//revisar si es true o false y viceversa
+            BattleOver(true);//revisar si es true o false y viceversa
         }
     }
 
