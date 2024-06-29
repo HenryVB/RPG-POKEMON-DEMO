@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BattleSystem battleSystem;
     [SerializeField] private Camera worldCamera;
     [SerializeField] private InventoryUI inventoryUI;
-
+    //[SerializeField] private AudioClip victoryMusic;
+    //[SerializeField] private AudioClip gameOverMusic;
 
     private GameState state;
     private GameState prevState;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     public SceneDetails CurrentScene { get => currentScene; set => currentScene = value; }
     public SceneDetails PrevScene { get => prevScene; set => prevScene = value; }
 
+    private int wildPokemonsDefeated;
+
     private void Awake()
     {
         Instance = this;
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        wildPokemonsDefeated = 0;
+
         battleSystem.onBattleOver += EndBattle;
 
         //partyScreen.Init();
@@ -109,33 +114,19 @@ public class GameManager : MonoBehaviour
         StartCoroutine(trainer.TriggerTrainerBattle(playerController));
     }
     */
-    void EndBattle(bool won)
+    void EndBattle(bool won,bool isRunning)
     {
-        /*
-        if (trainer != null && won == true)
-        {
-            trainer.BattleLost();
-            trainer = null;
-        }
-        */
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
         AudioManager.instance.PlayMusic(CurrentScene.SceneMusic, fade: true);
 
+        if (isRunning) return;
 
-        if (won)
-        {
-            AudioManager.instance.StopMusic();
-            SceneManager.LoadScene("Victory");
-        }
+        if (won) wildPokemonsDefeated++;
 
-        else
-        {
-            AudioManager.instance.StopMusic();
-            SceneManager.LoadScene("GameOver");
-        }
-            
+        if(wildPokemonsDefeated == 2 || !won)
+            FinishGame(won);
     }
 
     private void Update()
@@ -221,6 +212,30 @@ public class GameManager : MonoBehaviour
             // Load
             //SavingSystem.i.Load("saveSlot1");
             state = GameState.FreeRoam;
+        }
+    }
+
+    private void FinishGame(bool conditionToWin)
+    {
+        DestroyLevelPackObject();
+
+        if (conditionToWin)
+        {
+            SceneManager.LoadScene("Victory");
+        }
+
+        else
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    private void DestroyLevelPackObject()
+    {
+        var existingObjects = FindObjectsOfType<EssentialObjects>();
+        foreach (var obj in existingObjects)
+        {
+            Destroy(obj.gameObject);
         }
     }
 

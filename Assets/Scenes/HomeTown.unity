@@ -334,7 +334,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 26
-      m_TileSpriteIndex: 26
+      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1064,7 +1064,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 26
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1989,8 +1989,8 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -5472138256812182249, guid: cb3a56e86b2bb9c4991509ad74cde6ad, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 5390515300888648957, guid: cb3a56e86b2bb9c4991509ad74cde6ad, type: 3}
   - m_RefCount: 1
@@ -2042,7 +2042,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -133517962813326697, guid: 6092738183c668a4d924383acaf9eb5f, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 3608026245190458011, guid: 6092738183c668a4d924383acaf9eb5f, type: 3}
+    m_Data: {fileID: -5472138256812182249, guid: cb3a56e86b2bb9c4991509ad74cde6ad, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -3026403903459387518, guid: 6092738183c668a4d924383acaf9eb5f, type: 3}
   - m_RefCount: 35
@@ -2083,8 +2083,8 @@ Tilemap:
     m_Data: {fileID: 1102175699243514126, guid: cb3a56e86b2bb9c4991509ad74cde6ad, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -6714230475074417111, guid: cb3a56e86b2bb9c4991509ad74cde6ad, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 3608026245190458011, guid: 6092738183c668a4d924383acaf9eb5f, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 156
     m_Data:
@@ -11678,7 +11678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[0]
@@ -11690,15 +11690,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[2]
-      value: Debes conseguir tu primer pokemon
+      value: "Debes conseguir tu primer pokemon o no podr\xE1s avanzar"
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[3]
-      value: Debes ayudar a encontrar un item a una persona (siguiente nivel)
+      value: Debes ayudar a encontrar un item a una persona y devolverselo (siguiente
+        area)
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[4]
-      value: Debes ganar una batalla con un pokemon salvaje
+      value: Debes ganar 2 batallas contra pokemones salvajes (siguiente area)
+      objectReference: {fileID: 0}
+    - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
+      propertyPath: dialog.lines.Array.data[5]
+      value: "Si eres derrotado en batalla perderas el juego pero si cumples con
+        todos triunfar\xE1s"
       objectReference: {fileID: 0}
     - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: m_LocalPosition.x

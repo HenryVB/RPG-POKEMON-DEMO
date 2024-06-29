@@ -41,7 +41,7 @@ public class Quest
         if (Base.RewardItem != null)
         {
             inventory.AddItem(Base.RewardItem);
-
+            AudioManager.instance.PlaySfx(AudioId.ItemObtained, pauseMusic: true);
             string playerName = player.GetComponent<PlayerController>().Name;
             yield return DialogManager.Instance.ShowDialogText($"{playerName} received {Base.RewardItem.Name}");
         }

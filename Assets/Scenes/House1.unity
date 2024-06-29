@@ -142,14 +142,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pokemonsToGive:
   - _base: {fileID: 11400000, guid: b87ca861ac2d4574e934d10193c0b60c, type: 2}
-    level: 6
+    level: 7
   - _base: {fileID: 11400000, guid: 608d1802c7e1bf949a66144b7d536fcb, type: 2}
-    level: 6
+    level: 7
   - _base: {fileID: 11400000, guid: b70b10138b019bd408668f8058407aac, type: 2}
-    level: 6
+    level: 7
   dialog:
     lines:
-    - Salir fuera del publo sin pokemon es peligroso
+    - Salir fuera del pueblo sin pokemon es peligroso
     - Venga te regalo 1 de los 3 que tengo
 --- !u!1 &458945072
 GameObject:

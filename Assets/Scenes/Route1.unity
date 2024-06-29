@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 45002815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.63, y: -0.61, z: 0}
+  m_LocalPosition: {x: 2.63, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7978,7 +7978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[0]
-      value: Hola pareces un buen tipo
+      value: Ahora puedes ir a pelear al otro lado buena suerte =)
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[1]
@@ -8061,7 +8061,7 @@ Transform:
   m_GameObject: {fileID: 900960360}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.4, y: 0.7, z: 78.34606}
+  m_LocalPosition: {x: -20.5, y: 0.3, z: 78.34606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8191,11 +8191,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ef48a367be36b784bba9bf6d769370ec, type: 2}
     - target: {fileID: 6759204493755718403, guid: 6eb6d9dfc0216af4e981febf18482dd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.28
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 6759204493755718403, guid: 6eb6d9dfc0216af4e981febf18482dd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.93
+      value: 14.86
       objectReference: {fileID: 0}
     - target: {fileID: 6759204493755718403, guid: 6eb6d9dfc0216af4e981febf18482dd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8400,7 +8400,7 @@ Transform:
   m_GameObject: {fileID: 1544308793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.63, y: 0.61, z: 0}
+  m_LocalPosition: {x: 2.63, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11273,7 +11273,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[1]
-      value: Revise los items en tu inventario
+      value: Revisa los items en tu inventario
       objectReference: {fileID: 0}
     - target: {fileID: 5593277247332309884, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11370,7 +11370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[3]
-      value: 2.- A tu derecha debes vencer al menos un pokemon
+      value: 2.- A tu derecha debes vencer a 2 pokemones
       objectReference: {fileID: 0}
     - target: {fileID: 962998853617547739, guid: 35725ce867c1afb40a123df0235a3fe8, type: 3}
       propertyPath: dialog.lines.Array.data[4]

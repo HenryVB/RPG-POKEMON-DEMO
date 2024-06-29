@@ -971,6 +971,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 7725833982379803511, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
+      propertyPath: victoryMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 1518dd134a462f54aa8a74d3e46ecf4a, type: 3}
+    - target: {fileID: 7725833982379803511, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
+      propertyPath: gameOverMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e72ee152ee51204a8143f7f9a49d921, type: 3}
     - target: {fileID: 8022229928227659632, guid: 811022a5cc549aa49bb249dc363ab509, type: 3}
       propertyPath: m_Enabled
       value: 0

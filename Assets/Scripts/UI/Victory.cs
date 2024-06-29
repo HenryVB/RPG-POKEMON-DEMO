@@ -10,7 +10,7 @@ public class Victory : MonoBehaviour
 
     private void Awake()
     {
-        AudioManager.instance.PlayMusic(bgMusic, fade: true);
+        //AudioManager.instance.PlayMusic(bgMusic, fade: true);
     }
     private void Start()
     {

@@ -20,10 +20,11 @@ MonoBehaviour:
     - Puedes traerme una super potion? Buscala por aqui en un icono de pokebola
   inProgressDialogue:
     lines:
-    - Hola consigueme la super potion
+    - Hola consigue la super pocion y traedmela
+    - Recuerda que esta en forma de pokebola
   completedDialogue:
     lines:
     - Muchas gracias
-    - Aqui te doy un premio
+    - Aqui te doy un premio lo puedes revisar en tu inventario
   requiredItem: {fileID: 11400000, guid: fdba64884a60a3c4e9f82ece78484def, type: 2}
   rewardItem: {fileID: 11400000, guid: 3883e71630d511f41a73549bab9af623, type: 2}

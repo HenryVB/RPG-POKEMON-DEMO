@@ -15,7 +15,7 @@ public class BattleSystem : MonoBehaviour
     private int currentAction;
     private int currentMove;
 
-    public event Action<bool> onBattleOver;
+    public event Action<bool,bool> onBattleOver;
 
     private PokemonParty playerParty;
     private Pokemon wildPokemon;
@@ -304,9 +304,9 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    private void BattleOver(bool won) { 
+    private void BattleOver(bool isPlayerWinner = false, bool isRunning = false) { 
        state = BattleState.BattleOver;
-       onBattleOver(won);
+       onBattleOver(isPlayerWinner,isRunning);
     }
 
     IEnumerator TryToEscape() {
@@ -324,7 +324,7 @@ public class BattleSystem : MonoBehaviour
 
         if (enemySpeed <= playerSpeed) {
             yield return dialogBox.TypeDialog($"Run away safely");
-            BattleOver(true);
+            BattleOver(true,true);
         }
 
         else
@@ -334,14 +334,14 @@ public class BattleSystem : MonoBehaviour
 
             if (UnityEngine.Random.Range(0, 256) < f) {
                 yield return dialogBox.TypeDialog($"Run away safely");
-                BattleOver(true);
+                BattleOver(true,true);
             }
 
             else
             {
                 yield return dialogBox.TypeDialog($"Can't Escape");
                 state = BattleState.RunningTurn;
-                BattleOver(true);
+                BattleOver(true, true);
             }
         }
     }

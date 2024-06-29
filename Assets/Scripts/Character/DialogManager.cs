@@ -21,7 +21,8 @@ public class DialogManager : MonoBehaviour
     public bool IsShowing { get; private set; }
     private void Awake()
     {
-        Instance = this;
+        if(instance == null)
+            Instance = this;
     }
 
     public IEnumerator ShowDialogText(string text, bool waitForInput = true, bool autoClose = true)
